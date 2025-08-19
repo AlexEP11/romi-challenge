@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+    --color-axolotl: #fc6464;
+    --color-romi: #f4b4b4;
+}
