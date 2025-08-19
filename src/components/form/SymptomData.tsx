@@ -55,7 +55,7 @@ export const SymptomData = ({ register, errors }: SymptomDataProps) => {
                     ))}
                 </div>
 
-                {symptom === "Otro" && (
+                {symptom === "Otro..." && (
                     <input
                         {...register("otroSintoma", {
                             required: "Por favor, escribe tu sintoma",
