@@ -1,6 +1,7 @@
 import type { FieldErrors, UseFormRegister } from "react-hook-form";
 import type { FormData } from "../../interface";
 import { ErrorMessage } from "../errors/ErrorMessage";
+import { LabelForm } from "./LabelForm";
 
 interface PatientDataProps {
     register: UseFormRegister<FormData>;
@@ -12,20 +13,14 @@ export const PatientData = ({ register, errors }: PatientDataProps) => {
         <>
             <legend className="font-bold text-2xl">Datos del Paciente</legend>
             <div className="flex flex-col gap-3">
-                <label
-                    htmlFor="nombre"
-                    className="text-neutral-700 font-medium hover:cursor-pointer"
-                >
-                    Nombre Completo:{" "}
-                    <span className="font-bold text-axolotl">*</span>
-                </label>
+                <LabelForm html="nombre" title="Nombre" required />
+
                 <input
                     {...register("nombre", { required: true })}
                     type="text"
                     id="nombre"
                     placeholder="Ej. Alejandro Estrada Ponce"
-                    className="w-full border border-gray-200 rounded-md p-3 text-neutral-700 text-base
-                        focus:outline-none focus:ring-1 focus:ring-romi focus:border-romi transition-all duration-200 ease-in-out"
+                    className="input-base"
                 />
                 {errors.nombre && (
                     <ErrorMessage message="Este campo es obligatorio" />
@@ -34,12 +29,7 @@ export const PatientData = ({ register, errors }: PatientDataProps) => {
 
             <div className="flex flex-col md:flex-row md:justify-between gap-5">
                 <div className="w-full md:w-1/4">
-                    <label
-                        htmlFor="edad"
-                        className="text-neutral-700 font-medium hover:cursor-pointer"
-                    >
-                        Edad: <span className="font-bold text-axolotl">*</span>
-                    </label>
+                    <LabelForm html="edad" title="Edad" required />
                     <input
                         {...register("edad", {
                             required: true,
@@ -49,20 +39,15 @@ export const PatientData = ({ register, errors }: PatientDataProps) => {
                         type="number"
                         id="edad"
                         placeholder="Ej. 18"
-                        className="w-full mt-3 border border-gray-200 rounded-md p-3 text-neutral-700 text-base
-                        focus:outline-none focus:ring-1 focus:ring-romi focus:border-romi transition-all duration-200 ease-in-out"
+                        className="input-base"
                     />
                     {errors.edad && (
                         <ErrorMessage message="Edad fuera de rango" />
                     )}
                 </div>
                 <div className="w-full md:w-3/4">
-                    <label
-                        htmlFor="sexo"
-                        className="text-neutral-700 font-medium hover:cursor-pointer"
-                    >
-                        Sexo:
-                    </label>
+                    <LabelForm html="sexo" title="Sexo" />
+
                     <select
                         {...register("sexo", {
                             validate: (val) =>
@@ -73,8 +58,7 @@ export const PatientData = ({ register, errors }: PatientDataProps) => {
                         })}
                         name="sexo"
                         id="sexo"
-                        className="w-full mt-3 border border-gray-200 rounded-md p-3 text-neutral-700 text-base
-                        focus:outline-none focus:ring-1 focus:ring-romi focus:border-romi transition-all duration-200 ease-in-out"
+                        className="input-base"
                     >
                         <option value="H">Hombre</option>
                         <option value="M">Mujer</option>
@@ -82,6 +66,72 @@ export const PatientData = ({ register, errors }: PatientDataProps) => {
                     </select>
                     {errors.sexo && <ErrorMessage message="Opción no valida" />}
                 </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row md:justify-between gap-5">
+                <div className="w-full md:w-1/2">
+                    <LabelForm html="peso" title="Peso (kg)" required />
+                    <input
+                        type="number"
+                        step="1"
+                        {...register("peso", {
+                            required: true,
+                            min: 1,
+                            max: 300,
+                        })}
+                        min={0}
+                        max={300}
+                        name="peso"
+                        id="peso"
+                        placeholder="Ej: 1"
+                        className="input-base"
+                    />
+                    {errors.peso && (
+                        <ErrorMessage message="Peso fuera de rango" />
+                    )}
+                </div>
+                <div className="w-full md:w-1/2">
+                    <LabelForm
+                        html="estatura"
+                        title="Estatura (mts)"
+                        required
+                    />
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        {...register("estatura", {
+                            required: true,
+                            min: 0.5,
+                            max: 3,
+                        })}
+                        min={0.5}
+                        max={3}
+                        name="estatura"
+                        id="estatura"
+                        placeholder="Ej: 1.75"
+                        className="input-base"
+                    />
+                    {errors.estatura && (
+                        <ErrorMessage message="Estatura fuera de rango" />
+                    )}
+                </div>
+            </div>
+            <div className="w-full">
+                <LabelForm html="correo" title="Correo Electronico" required />
+                <input
+                    type="email"
+                    {...register("correo", {
+                        required: true,
+                    })}
+                    name="correo"
+                    id="correo"
+                    placeholder="Ej: correo@ejemplo.com"
+                    className="input-base"
+                />
+                {errors.correo && (
+                    <ErrorMessage message="El correo es obligatorio" />
+                )}
             </div>
         </>
     );

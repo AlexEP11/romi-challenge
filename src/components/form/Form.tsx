@@ -17,6 +17,9 @@ export const Form = () => {
         nivelDolor: 5,
         otroSintoma: "",
         sintomasSecundarios: [],
+        peso: 0,
+        estatura: 0,
+        correo: "",
     };
 
     const {
@@ -41,10 +44,10 @@ export const Form = () => {
                         initial={{ x: 2000 }}
                         animate={{ x: 0, transition: { duration: 0.6 } }}
                         exit={{ opacity: 0, transition: { duration: 0.6 } }}
-                        className="fixed z-50 right-5 bottom-10 gap-5 bg-white rounded-lg p-4 shadow-lg flex items-center"
+                        className="fixed z-50 right-5 bottom-10 gap-5 bg-white rounded-lg p-5 md:p-10 shadow-lg flex items-center"
                     >
-                        <img src="/svgs/send.svg" alt="" />
-                        <p className="font-semibold">
+                        <img src="/svgs/send.svg" alt="Icono de envio" />
+                        <p className="font-semibold text-xl md:text-3xl">
                             Formulario enviado con exito!
                         </p>
                     </motion.div>

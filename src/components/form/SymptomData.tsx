@@ -2,6 +2,7 @@ import type { FieldErrors, UseFormRegister } from "react-hook-form";
 import type { FormData } from "../../interface";
 import { ErrorMessage } from "../errors/ErrorMessage";
 import { useState } from "react";
+import { LabelForm } from "./LabelForm";
 
 interface SymptomDataProps {
     register: UseFormRegister<FormData>;
@@ -16,13 +17,11 @@ export const SymptomData = ({ register, errors }: SymptomDataProps) => {
         <>
             <legend className="font-bold text-2xl">Sintomas</legend>
             <div className="flex flex-col gap-3">
-                <label
-                    htmlFor="sintomaPrincipal"
-                    className="text-neutral-700 font-medium"
-                >
-                    Sintoma Principal:{" "}
-                    <span className="font-bold text-axolotl">*</span>
-                </label>
+                <LabelForm
+                    html="sintomaPrincipal"
+                    title="Sintoma Principal"
+                    required
+                />
 
                 <div
                     className="grid grid-cols-2 md:grid-cols-3 gap-5"
@@ -62,8 +61,7 @@ export const SymptomData = ({ register, errors }: SymptomDataProps) => {
                         })}
                         type="text"
                         placeholder="Escribe tu síntoma aquí..."
-                        className="w-full mt-3 border border-gray-200 rounded-md p-3 text-neutral-700 text-base
-                        focus:outline-none focus:ring-1 focus:ring-romi focus:border-romi transition-all duration-200 ease-in-out"
+                        className="input-base"
                     />
                 )}
 
@@ -78,12 +76,10 @@ export const SymptomData = ({ register, errors }: SymptomDataProps) => {
             </div>
 
             <div className="flex flex-col gap-3">
-                <label
-                    htmlFor="sintomasSecundarios"
-                    className="text-neutral-700 font-medium"
-                >
-                    Sintomas Secundarios:
-                </label>
+                <LabelForm
+                    html="sintomasSecundarios"
+                    title="Sintomas Secundarios"
+                />
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
                     {[
@@ -113,20 +109,17 @@ export const SymptomData = ({ register, errors }: SymptomDataProps) => {
             </div>
 
             <div className="flex flex-col gap-3">
-                <label
-                    htmlFor="infoAdicional"
-                    className="text-neutral-700 font-medium hover:cursor-pointer"
-                >
-                    Descripci&oacute;n adicional:{" "}
-                    <span className="font-bold text-axolotl">*</span>
-                </label>
+                <LabelForm
+                    html="infoAdicional"
+                    title="Descripción Adicional"
+                    required
+                />
                 <textarea
                     {...register("infoAdicional", { required: true })}
                     rows={5}
                     id="infoAdicional"
                     placeholder="Ej. Dolor leve de garganta desde ayer, algo de fatiga y malestar general"
-                    className="w-full mt-3 border border-gray-200 rounded-md p-3 text-neutral-700 text-base
-                            focus:outline-none focus:ring-1 focus:ring-romi focus:border-romi transition-all duration-200 ease-in-out resize-none"
+                    className="input-base resize-none"
                 />
                 {errors.infoAdicional && (
                     <ErrorMessage message="Este campo es obligatorio" />
@@ -134,13 +127,7 @@ export const SymptomData = ({ register, errors }: SymptomDataProps) => {
             </div>
 
             <div className="flex flex-col gap-3">
-                <label
-                    htmlFor="nivelDolor"
-                    className="text-neutral-700 font-medium hover:cursor-pointer"
-                >
-                    Nivel de dolor:{" "}
-                    <span className="font-bold text-axolotl">*</span>
-                </label>
+                <LabelForm html="nivelDolor" title="Nivel de Dolor" required />
                 <div className="flex gap-5 items-center">
                     <p>Nivel: {pain}</p>
                     <img
