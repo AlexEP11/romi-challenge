@@ -4,3 +4,9 @@
     --color-axolotl: #fc6464;
     --color-romi: #f4b4b4;
 }
+
+.input-base {
+    @apply w-full mt-3 border border-gray-200 rounded-md p-3 text-neutral-700 text-base
+         focus:outline-none focus:ring-1 focus:ring-romi focus:border-romi
+         transition-all duration-200 ease-in-out;
+}
