@@ -7,4 +7,7 @@ export interface FormData {
     nivelDolor: number;
     otroSintoma: string;
     sintomasSecundarios: string[];
+    peso: number;
+    estatura: number;
+    correo: string;
 }
