@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from "motion/react";
-import { useForm } from "react-hook-form";
-import { PatientData } from "./PatientData";
-import { SymptomData } from "./SymptomData";
 import { useState } from "react";
-import type { FormData } from "../../interface";
+import { useForm } from "react-hook-form";
+import { PatientData } from "@/components/form/PatientData";
+import { SymptomData } from "@/components/form/SymptomData";
+import type { FormData } from "@/interface";
 
 export const Form = () => {
     const [send, setSend] = useState<boolean>(false);

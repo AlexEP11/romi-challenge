@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Form, Header } from "../components";
+import { Form, Header } from "@/components";
 
 export default function App() {
     return (

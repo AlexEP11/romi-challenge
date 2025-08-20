@@ -1,7 +1,7 @@
+import { ErrorMessage } from "@/components/errors/ErrorMessage";
+import { LabelForm } from "@/components/form/LabelForm";
+import type { FormData } from "@/interface";
 import type { FieldErrors, UseFormRegister } from "react-hook-form";
-import type { FormData } from "../../interface";
-import { ErrorMessage } from "../errors/ErrorMessage";
-import { LabelForm } from "./LabelForm";
 
 interface PatientDataProps {
     register: UseFormRegister<FormData>;
