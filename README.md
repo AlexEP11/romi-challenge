@@ -20,7 +20,7 @@ interfaces/     # Tipados
 ┗ index.ts      # Archivo de barril para exportar interfaces
 ```
 
-### Explicación breve
+## Explicación breve
 
 -   **app/**: Contiene el componente principal que actúa como punto de entrada de la aplicación.
 -   **components/**: Centraliza todos los componentes reutilizables. Cada subcarpeta agrupa componentes relacionados con un propósito específico (errores, formularios, encabezado). Se incluye un archivo de barril para facilitar las importaciones.
@@ -33,6 +33,10 @@ interfaces/     # Tipados
 -   **TailwindCSS**: Framework para estilizar componentes de manera rápida.
 -   **Framer Motion**: Libreria para animaciones fluidas en los componentes
 -   **React Hook Form**: Manejo eficiente de formularios, validaciones y estados de inputs.
+
+## Diagrama de Flujo
+
+![Diagrama de Flujo del Formulario](./public/imgs/diagrama.png)
 
 ## Instalación y ejecución
 

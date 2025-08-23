@@ -16,8 +16,14 @@ export default function App() {
                 <aside className="flex flex-col lg:flex-row  items-center gap-10 justify-between max-w-[1440px] w-full">
                     <Form />
                     <motion.img
-                        initial={{ x: 1800 }}
-                        animate={{ x: 0, transition: { duration: 0.6 } }}
+                        initial={{ y: 0 }}
+                        animate={{ y: -30 }}
+                        transition={{
+                            repeat: Infinity,
+                            repeatType: "mirror",
+                            duration: 1.5,
+                            ease: "easeInOut",
+                        }}
                         src="/imgs/model.png"
                         alt="Ajolote Modelo 3D"
                         className="max-w-sm"
